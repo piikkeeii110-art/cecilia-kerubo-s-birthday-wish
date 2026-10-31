@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Mini-Games</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="clay-bg">
+    <main class="container">
+        <div class="clay-card" id="game-card">
+            <!-- STEP 1: Quiz -->
+            <div id="quiz-step" class="game-step">
+                <svg class="clay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+                <h2 class="clay-title">Quick Question...</h2>
+                <p class="clay-subtitle">Who is the prettiest girl in the room?</p>
+                <div class="btn-group vertical-group">
+                    <button class="clay-btn quiz-option" data-correct="true">Obviously Cecillia ✨</button>
+                    <button class="clay-btn clay-btn-secondary quiz-option" data-correct="false">Also Cecillia 💕</button>
+                </div>
+            </div>
+
+            <!-- STEP 2: Catch the Hearts (Hidden initially) -->
+            <div id="catch-step" class="game-step hidden-step">
+                <svg class="clay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                </svg>
+                <h2 class="clay-title">Catch 5 Hearts!</h2>
+                <p class="clay-subtitle" id="heart-counter">Caught: 0 / 5</p>
+                <div id="heart-arena" class="heart-arena"></div>
+            </div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

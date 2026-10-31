@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Private Entrance</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="clay-bg">
+    <main class="container">
+        <div class="clay-card watermark-bg" id="welcome-card">
+            
+            <!-- Lock Step -->
+            <div id="lock-step" class="lock-container">
+                <svg class="clay-icon lock-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
+                <h2 class="clay-title">Enter Passcode</h2>
+                <p class="clay-subtitle">Private Access Only</p>
+
+                <!-- 4-Ring Combination Lock (0-9 Straight Alignment) -->
+                <div class="combo-lock">
+                    <div class="dial-column">
+                        <button class="dial-btn up" data-dial="0">▲</button>
+                        <div class="dial-val" id="dial-0">0</div>
+                        <button class="dial-btn down" data-dial="0">▼</button>
+                    </div>
+                    <div class="dial-column">
+                        <button class="dial-btn up" data-dial="1">▲</button>
+                        <div class="dial-val" id="dial-1">0</div>
+                        <button class="dial-btn down" data-dial="1">▼</button>
+                    </div>
+                    <div class="dial-column">
+                        <button class="dial-btn up" data-dial="2">▲</button>
+                        <div class="dial-val" id="dial-2">0</div>
+                        <button class="dial-btn down" data-dial="2">▼</button>
+                    </div>
+                    <div class="dial-column">
+                        <button class="dial-btn up" data-dial="3">▲</button>
+                        <div class="dial-val" id="dial-3">0</div>
+                        <button class="dial-btn down" data-dial="3">▼</button>
+                    </div>
+                </div>
+
+                <button id="unlock-btn" class="clay-btn" style="margin-top: 10px;">Unlock</button>
+                <div id="lock-feedback" class="feedback-msg"></div>
+            </div>
+
+            <!-- Content Step (Hidden until unlocked) -->
+            <div id="welcome-content" class="hidden-step">
+                <button id="sparkle-btn" class="clay-btn">
+                    <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                    </svg>
+                    <span>Press Here</span>
+                </button>
+                <div id="welcome-message" class="hidden-text">
+                    welcome cecillia feel loved
+                </div>
+            </div>
+
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>

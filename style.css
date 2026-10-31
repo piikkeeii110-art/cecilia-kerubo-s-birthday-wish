@@ -1,0 +1,509 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.clay-bg {
+    background-color: #e0e5ec;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Screen-Optimized Larger Container & Card */
+.container {
+    width: 100vw;
+    height: 100vh;
+    max-width: 100%;
+    max-height: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Grey Claymorphic Card */
+.clay-card {
+    width: 100%;
+    max-width: 580px;
+    min-height: 440px;
+    height: auto;
+    max-height: 90vh;
+    background: #e0e5ec;
+    padding: 40px 30px;
+    border-radius: 35px;
+    box-shadow: 
+        16px 16px 32px #b8bec7,
+        -16px -16px 32px #ffffff,
+        inset 4px 4px 8px rgba(255, 255, 255, 0.7),
+        inset -4px -4px 8px rgba(163, 177, 198, 0.6);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    touch-action: pan-y;
+}
+
+.clay-card:active {
+    transform: scale(0.98);
+}
+
+.fade-out {
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+/* Touch Finger Trail Particles */
+.touch-trail-particle {
+    position: fixed;
+    pointer-events: none;
+    font-size: 18px;
+    transform: translate(-50%, -50%);
+    animation: fadeTrailParticle 0.8s linear forwards;
+    z-index: 9999;
+}
+
+@keyframes fadeTrailParticle {
+    0% {
+        transform: translate(-50%, -50%) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(-50%, -120px) scale(0.3) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* Clay Icons */
+.clay-icon {
+    width: 50px;
+    height: 50px;
+    color: #556070;
+    padding: 10px;
+    background: #e0e5ec;
+    border-radius: 50%;
+    box-shadow: 
+        5px 5px 10px #b8bec7,
+        -5px -5px 10px #ffffff,
+        inset 2px 2px 4px rgba(255, 255, 255, 0.8);
+}
+
+/* Clay Buttons */
+.clay-btn {
+    border: none;
+    outline: none;
+    background: #e0e5ec;
+    padding: 15px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #4a5568;
+    border-radius: 25px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 
+        6px 6px 12px #b8bec7,
+        -6px -6px 12px #ffffff,
+        inset 2px 2px 4px rgba(255, 255, 255, 0.8);
+    transition: all 0.2s ease;
+}
+
+.clay-btn:active {
+    box-shadow: 
+        inset 4px 4px 8px #b8bec7,
+        inset -4px -4px 8px #ffffff;
+    transform: scale(0.97);
+}
+
+.btn-icon {
+    width: 20px;
+    height: 20px;
+    stroke: #4a5568;
+}
+
+.btn-group {
+    display: flex;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.clay-title {
+    color: #334155;
+    font-size: 1.35rem;
+}
+
+.clay-subtitle {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+/* Page 1 Welcome Text */
+.hidden-text {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.6s ease-in-out;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #475569;
+    margin-top: 10px;
+}
+
+.show-text {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Particle / Glitter Style */
+.glitter {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #94a3b8;
+    box-shadow: 0 0 10px #94a3b8;
+    pointer-events: none;
+    animation: sparkleFade 1s forwards ease-out;
+}
+
+@keyframes sparkleFade {
+    0% { transform: scale(1) translate(0, 0); opacity: 1; }
+    100% { transform: scale(0) translate(var(--tx), var(--ty)); opacity: 0; }
+}
+
+/* Page 3 Mini-Games Styles */
+.game-step {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    transition: opacity 0.5s ease;
+}
+
+.hidden-step {
+    display: none;
+}
+
+.vertical-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+}
+
+.vertical-group .clay-btn {
+    width: 100%;
+    justify-content: center;
+}
+
+.heart-arena {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    background: #e0e5ec;
+    border-radius: 20px;
+    box-shadow: 
+        inset 4px 4px 8px #b8bec7,
+        inset -4px -4px 8px #ffffff;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.floating-heart {
+    position: absolute;
+    width: 36px;
+    height: 36px;
+    background: #e0e5ec;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 
+        3px 3px 6px #b8bec7,
+        -3px -3px 6px #ffffff;
+    transition: transform 0.1s ease;
+    animation: floatAround 3s infinite alternate ease-in-out;
+}
+
+.floating-heart svg {
+    width: 18px;
+    height: 18px;
+    stroke: #e11d48;
+    fill: #ffe4e6;
+}
+
+.floating-heart:active {
+    transform: scale(0.85);
+    box-shadow: 
+        inset 2px 2px 4px #b8bec7,
+        inset -2px -2px 4px #ffffff;
+}
+
+@keyframes floatAround {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(15px, -15px); }
+}
+
+/* Page 4 Missing Gaps Fix */
+.word-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    flex-wrap: nowrap;
+    margin: 15px 0;
+    width: 100%;
+}
+
+.letter {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #334155;
+}
+
+.space-word {
+    width: 10px;
+}
+
+.clay-input {
+    width: 32px;
+    height: 40px;
+    border: none;
+    outline: none;
+    background: #e0e5ec;
+    border-radius: 8px;
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #334155;
+    box-shadow: 
+        inset 2px 2px 5px #b8bec7,
+        inset -2px -2px 5px #ffffff;
+    text-transform: lowercase;
+}
+
+.feedback-msg {
+    min-height: 24px;
+    font-weight: 600;
+    color: #475569;
+}
+
+/* Page 5 Letter */
+.letter-card {
+    text-align: left;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.letter-body {
+    width: 100%;
+    min-height: 180px;
+    color: #334155;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* Modal Popup Styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(224, 229, 236, 0.85);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: opacity 0.3s ease;
+}
+
+.hidden-modal {
+    opacity: 0;
+    pointer-events: none;
+    display: none;
+}
+
+.modal-card {
+    max-width: 360px;
+    width: 90%;
+    animation: popUpScale 0.3s ease-out;
+}
+
+@keyframes popUpScale {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* Page 5 Header Row */
+.letter-header-row {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon-only-btn {
+    padding: 12px;
+    border-radius: 50%;
+}
+
+.icon-only-btn svg {
+    width: 20px;
+    height: 20px;
+    stroke: #4a5568;
+}
+
+/* Watermark Background */
+.watermark-bg {
+    position: relative;
+    overflow: hidden;
+}
+
+.watermark-bg::before {
+    content: "piikkeeii";
+    position: absolute;
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: rgba(148, 163, 184, 0.12);
+    letter-spacing: 4px;
+    user-select: none;
+    pointer-events: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-15deg);
+    white-space: nowrap;
+}
+
+/* Combination Lock UI */
+.lock-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+}
+
+.combo-lock {
+    display: flex;
+    gap: 12px;
+    margin: 15px 0;
+}
+
+.dial-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+
+.dial-btn {
+    border: none;
+    background: transparent;
+    color: #64748b;
+    font-size: 0.8rem;
+    cursor: pointer;
+    padding: 2px;
+    transition: color 0.2s ease;
+}
+
+.dial-btn:hover {
+    color: #334155;
+}
+
+.dial-val {
+    width: 44px;
+    height: 54px;
+    background: #e0e5ec;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #334155;
+    box-shadow: 
+        inset 3px 3px 6px #b8bec7,
+        inset -3px -3px 6px #ffffff;
+    user-select: none;
+    transition: transform 0.15s ease-out;
+}
+
+/* Animations */
+.shake-lock {
+    animation: shakeAnim 0.4s ease-in-out;
+}
+
+@keyframes shakeAnim {
+    0%, 100% { transform: translateX(0); }
+    20%, 60% { transform: translateX(-8px); }
+    40%, 80% { transform: translateX(8px); }
+}
+
+.unlock-pulse {
+    animation: unlockPulseAnim 0.5s ease-out;
+}
+
+@keyframes unlockPulseAnim {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* --- Butterfly & Heart Background Animations --- */
+.butterfly-container, .ambient-heart-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.ambient-butterfly {
+    position: absolute;
+    width: 28px;
+    height: 28px;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' fill='%2364748b' opacity='0.35' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 3c-1.5 2-4 4-6 5-2 1-3 3-3 5 0 3 2.5 5 5 3 2-1 3-3 4-4 1 1 2 3 4 4 2.5 2 5 0 5-3 0-2-1-4-3-5-2-1-4.5-3-6-5z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: flyButterfly 14s infinite linear;
+}
+
+@keyframes flyButterfly {
+    0% { transform: translate(-50px, 100vh) rotate(15deg) scale(0.8); opacity: 0; }
+    20% { opacity: 0.6; }
+    50% { transform: translate(40vw, 40vh) rotate(-20deg) scale(1.1); }
+    80% { opacity: 0.6; }
+    100% { transform: translate(90vw, -50px) rotate(25deg) scale(0.9); opacity: 0; }
+}
+
+.ambient-heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg viewBox='0 0 24 24' fill='%23e11d48' opacity='0.4' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: floatHeartUp 8s infinite ease-in-out;
+}
+
+@keyframes floatHeartUp {
+    0% { transform: translateY(100vh) scale(0.6) rotate(0deg); opacity: 0; }
+    20% { opacity: 0.5; }
+    80% { opacity: 0.5; }
+    100% { transform: translateY(-10vh) scale(1.2) rotate(360deg); opacity: 0; }
+}

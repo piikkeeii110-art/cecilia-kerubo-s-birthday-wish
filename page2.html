@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do You Know?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="clay-bg">
+    <main class="container">
+        <div class="clay-card">
+            <svg class="clay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                <line x1="16" y1="2" x2="16" y2="6"/>
+                <line x1="8" y1="2" x2="8" y2="6"/>
+                <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+            <h2 class="clay-title">Do you know what date it is?</h2>
+            <div class="btn-group">
+                <button id="yes-btn" class="clay-btn">Yes</button>
+                <button id="no-btn" class="clay-btn clay-btn-secondary">No</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Date Pop-up Modal -->
+    <div id="date-modal" class="modal-overlay hidden-modal">
+        <div class="clay-card modal-card">
+            <h3 class="clay-title">Special Date ✨</h3>
+            <p id="current-date-text" class="clay-subtitle"></p>
+            <p id="birthday-text" class="clay-subtitle" style="font-weight: 600; color: #334155; margin-top: 5px;">your Birthday:🎉</p>
+            <button id="modal-proceed-btn" class="clay-btn" style="margin-top: 10px;">Continue ✨</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

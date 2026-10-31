@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill the Gaps</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="clay-bg">
+    <main class="container">
+        <div class="clay-card">
+            <svg class="clay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/>
+                <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/>
+            </svg>
+            <h2 class="clay-title">Fill in the missing gaps</h2>
+            
+            <div id="word-game" class="word-container">
+                <span class="letter">H</span>
+                <input type="text" maxlength="1" class="clay-input gap" data-index="0">
+                <span class="letter">p</span>
+                <input type="text" maxlength="1" class="clay-input gap" data-index="1">
+                <span class="letter">y</span>
+                <span class="space-word"></span>
+                <span class="letter">b</span>
+                <input type="text" maxlength="1" class="clay-input gap" data-index="2">
+                <span class="letter">r</span>
+                <span class="letter">t</span>
+                <span class="letter">h</span>
+                <input type="text" maxlength="1" class="clay-input gap" data-index="3">
+                <span class="letter">a</span>
+                <input type="text" maxlength="1" class="clay-input gap" data-index="4">
+            </div>
+
+            <div id="game-feedback" class="feedback-msg"></div>
+        </div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
