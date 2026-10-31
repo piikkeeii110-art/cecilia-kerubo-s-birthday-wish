@@ -317,7 +317,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const message = "Dear Cecillia,\n\nOn this special day, may your path be filled with unending joy, warmth, and beautiful moments. You are truly appreciated and cherished.\n\nHappy Birthday! ✨";
 
         if (letterContainer) {
-            letterContainer.textContent = ""; // Clear out any previous text first
+            letterContainer.textContent = ""; 
             let index = 0;
             
             function typeLetter() {
@@ -334,34 +334,83 @@ document.addEventListener("DOMContentLoaded", () => {
         if (speakBtn) {
             speakBtn.addEventListener("click", () => {
                 if ('speechSynthesis' in window) {
-                    window.speechSynthesis.cancel(); // Stop any ongoing speech
+                    window.speechSynthesis.cancel();
                     const utterance = new SpeechSynthesisUtterance(message);
-                    utterance.rate = 0.95; // Natural speed
-                    utterance.pitch = 1.1;  // Slightly warm tone
+                    utterance.rate = 0.95;
+                    utterance.pitch = 1.1;
                     window.speechSynthesis.speak(utterance);
                 } else {
                     alert("Speech synthesis is not supported on your browser.");
                 }
             });
         }
-    }
 
-    // Fidget Spinner Rotation Logic
+        // --- Manual Fidget Spinner (Left / Right Spin via Drag or Swipe) ---
         const fidgetMatrix = document.getElementById("fidget-matrix");
         if (fidgetMatrix) {
+            let isDragging = false;
+            let startX = 0;
             let currentRotation = 0;
 
-            // Click or tap to flick and spin extra degrees
-            fidgetMatrix.addEventListener("click", () => {
-                currentRotation += 720; // Spins two full turns on tap
-                fidgetMatrix.style.transform = `rotate(${currentRotation}deg)`;
-            });
+            function startDrag(x) {
+                isDragging = true;
+                startX = x;
+            }
 
-            // Optional touch swipe spin
-            let touchStartAngle = 0;
-            fidgetMatrix.addEventListener("touchstart", () => {
-                currentRotation += 360;
+            function moveDrag(x) {
+                if (!isDragging) return;
+                const deltaX = x - startX;
+                currentRotation += deltaX * 0.8; // Smooth manual rotation left or right
                 fidgetMatrix.style.transform = `rotate(${currentRotation}deg)`;
+                startX = x;
+            }
+
+            function endDrag() {
+                isDragging = false;
+            }
+
+            // Mouse Events
+            fidgetMatrix.addEventListener("mousedown", (e) => startDrag(e.clientX));
+            window.addEventListener("mousemove", (e) => moveDrag(e.clientX));
+            window.addEventListener("mouseup", endDrag);
+
+            // Touch Events (Mobile friendly)
+            fidgetMatrix.addEventListener("touchstart", (e) => startDrag(e.touches[0].clientX), { passive: true });
+            window.addEventListener("touchmove", (e) => {
+                if (e.touches.length > 0) moveDrag(e.touches[0].clientX);
             }, { passive: true });
+            window.addEventListener("touchend", endDrag);
         }
+
+        // --- Full-Screen Image Modal Viewer ---
+        const modal = document.getElementById("image-modal");
+        const modalImg = document.getElementById("modal-img-element");
+        const closeModalBtn = document.getElementById("close-modal-btn");
+        const profileCircles = document.querySelectorAll(".profile-circle");
+
+        profileCircles.forEach(circle => {
+            circle.addEventListener("click", (e) => {
+                e.stopPropagation(); // Prevents triggering spinner drag
+                const img = circle.querySelector("img");
+                if (img) {
+                    modalImg.src = img.src;
+                    modal.classList.remove("hidden-modal");
+                }
+            });
+        });
+
+        if (closeModalBtn) {
+            closeModalBtn.addEventListener("click", () => {
+                modal.classList.add("hidden-modal");
+            });
+        }
+
+        if (modal) {
+            modal.addEventListener("click", (e) => {
+                if (e.target === modal) {
+                    modal.classList.add("hidden-modal");
+                }
+            });
+        }
+    }
 });
