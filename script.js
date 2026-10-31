@@ -314,7 +314,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (currentPage === "page5.html") {
         const letterContainer = document.getElementById("letter-content");
         const speakBtn = document.getElementById("speak-btn");
-        const message = "Dear Cecillia,\n\nOn this special day, may your path be filled with unending joy, warmth, and beautiful moments. You are truly appreciated and cherished.\n\nHappy Birthday ! i love youuu 💖✨\n\nWith all my love,\n[peter]";
+        const message = "Dear Cecillia,\n\nOn this special day, may your path be filled with unending joy, warmth, and beautiful moments. You are truly appreciated and cherished.\n\nHappy Birthday ! i love youu 💖✨\n\nWith all my love,\n[peter]";
 
         if (letterContainer) {
             letterContainer.textContent = ""; 
