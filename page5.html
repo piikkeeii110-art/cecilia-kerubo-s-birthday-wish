@@ -12,7 +12,7 @@
             
             <!-- Header Row with Text-to-Speech Button -->
             <div class="letter-header-row">
-                <h2 class="clay-title">For Cecillia ✨</h2>
+                <h2 class="clay-title">For you only</h2>
                 <button id="speak-btn" class="clay-btn icon-only-btn" title="Listen to Letter">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
@@ -46,6 +46,15 @@
 
         </div>
     </main>
+
+    <!-- Full-Screen Image Modal Viewer -->
+    <div id="image-modal" class="modal-overlay hidden-modal">
+        <div class="clay-card modal-card full-view-card">
+            <button id="close-modal-btn" class="clay-btn icon-only-btn" style="align-self: flex-end; margin-bottom: 10px;">✕</button>
+            <img id="modal-img-element" src="" alt="Cecillia Full View" style="width: 100%; border-radius: 20px; object-fit: cover; max-height: 70vh;">
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
