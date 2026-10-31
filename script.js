@@ -345,4 +345,23 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
     }
+
+    // Fidget Spinner Rotation Logic
+        const fidgetMatrix = document.getElementById("fidget-matrix");
+        if (fidgetMatrix) {
+            let currentRotation = 0;
+
+            // Click or tap to flick and spin extra degrees
+            fidgetMatrix.addEventListener("click", () => {
+                currentRotation += 720; // Spins two full turns on tap
+                fidgetMatrix.style.transform = `rotate(${currentRotation}deg)`;
+            });
+
+            // Optional touch swipe spin
+            let touchStartAngle = 0;
+            fidgetMatrix.addEventListener("touchstart", () => {
+                currentRotation += 360;
+                fidgetMatrix.style.transform = `rotate(${currentRotation}deg)`;
+            }, { passive: true });
+        }
 });

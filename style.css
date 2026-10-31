@@ -543,3 +543,82 @@
     object-fit: cover;
     border-radius: 14px;
 }
+
+/* Fidget Spinner 2x2 Matrix */
+.spinner-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 15px 0;
+}
+
+.fidget-matrix {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px; /* Touch & attach at the center */
+    align-items: center;
+    justify-items: center;
+    cursor: pointer;
+    transition: transform 0.8s cubic-bezier(0.25, 1, 0.5, 1);
+    touch-action: none;
+}
+
+.profile-circle {
+    width: 105px;
+    height: 105px;
+    border-radius: 50%;
+    background: #e0e5ec;
+    padding: 6px;
+    box-shadow: 
+        6px 6px 12px #b8bec7,
+        -6px -6px 12px #ffffff,
+        inset 2px 2px 4px rgba(255, 255, 255, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.profile-circle img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+/* Center Fidget Joint/Bearing */
+.center-bearing {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
+    background: #e0e5ec;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    box-shadow: 
+        4px 4px 8px #b8bec7,
+        -4px -4px 8px #ffffff,
+        inset 2px 2px 4px rgba(255, 255, 255, 0.9);
+    z-index: 10;
+}
+
+/* Continuous Auto Spinner Animation */
+.spinning {
+    animation: spinMatrix 6s infinite linear;
+}
+
+@keyframes spinMatrix {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
