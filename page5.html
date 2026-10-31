@@ -3,27 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Letter For You</title>
+    <title>A Special Message</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="clay-bg">
     <main class="container">
         <div class="clay-card letter-card">
+            
+            <!-- Header Row with Text-to-Speech Button -->
             <div class="letter-header-row">
-                <svg class="clay-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                    <polyline points="22,6 12,13 2,6"/>
-                </svg>
-                <!-- Voice Read Aloud Button -->
-                <button id="speak-btn" class="clay-btn icon-only-btn" title="Read Aloud">
+                <h2 class="clay-title">For Cecillia ✨</h2>
+                <button id="speak-btn" class="clay-btn icon-only-btn" title="Listen to Letter">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-                        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
                     </svg>
                 </button>
             </div>
+
+            <!-- Claymorphic Photo Gallery -->
+            <div class="photo-gallery">
+                <div class="clay-photo-frame">
+                    <img src="cecillia1.jpg" alt="Cecillia Close-up">
+                </div>
+                <div class="clay-photo-frame">
+                    <img src="cecillia2.jpg" alt="Cecillia Mirror Selfie">
+                </div>
+            </div>
+
+            <!-- Typed Letter Container -->
             <div id="letter-content" class="letter-body"></div>
+
         </div>
     </main>
     <script src="script.js"></script>
